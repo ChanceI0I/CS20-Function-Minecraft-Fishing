@@ -42,28 +42,19 @@ const villager = [
 
 function CatchFish() {
   let randNum = Math.random()*100;  //Generate random number from 1 to 100
-  let result;
+  let character = eval (charSelect.value);
 
-  // charSelect.value = "villager" //Test
+  // charSelect.value = "steve" //Test
 
-  //Check Which character is using
-  if (charSelect.value === "steve") {                            // Sort the array descending base on the percentage
-    result = steve.sort(function(a,b){return b.P - a.P});        // So the order of element doesn't matter
-  } else if (charSelect.value === "alex") {
-    result = alex.sort(function(a,b){return b.P - a.P});
-  } else {
-    result = villager.sort(function(a,b){return b.P - a.P});
-  }
-  
   // Decide which fish (The array is already sorted)
-  if (randNum < result[0].P){                                  
-    CheckFish(result[0].type)
-  } else if (randNum < result[1].P + result[0].P) {
-    CheckFish(result[1].type)
-  } else if (randNum < result[2].P + result[1].P + result[0].P) {
-    CheckFish(result[2].type)
+  if (randNum < character[0].P){                                  
+    CheckFish(character[0].type)
+  } else if (randNum < character[1].P + character[0].P) {
+    CheckFish(character[1].type)
+  } else if (randNum < character[2].P + character[1].P + character[0].P) {
+    CheckFish(character[2].type)
   } else {
-    CheckFish(result[3].type)
+    CheckFish(character[3].type)
   }
 
   //Check the fish and change the text and image on website 
